@@ -1,0 +1,10 @@
+#!/bin/sh
+ 
+ssh app@app <<EOF
+  cd ~/node-login
+  git pull
+  npm install --production
+  npm install -d
+  forever restartall
+  exit
+EOF
