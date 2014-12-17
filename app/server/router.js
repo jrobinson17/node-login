@@ -3,6 +3,13 @@ var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
+/*
+app.get('/', function (req, res) {
+  res.send('hello world');
+        //res.send('MetLife Tests #3');
+        //comment ewr
+}); */
+
 module.exports = function(app) {
 
 // main login page //
@@ -10,7 +17,7 @@ module.exports = function(app) {
 	app.get('/', function(req, res){
 	// check if the user's credentials are saved in a cookie //
 		if (req.cookies.user == undefined || req.cookies.pass == undefined){
-			res.render('login', { title: 'Hello - Please Login To Your Account' });
+			res.render('login', { title: 'Hello MetLife - Please Login To Your Account' });
 		}	else{
 	// attempt automatic login //
 			AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
@@ -18,7 +25,7 @@ module.exports = function(app) {
 				    req.session.user = o;
 					res.redirect('/home');
 				}	else{
-					res.render('login', { title: 'Hello - Please Login To Your Account' });
+					res.render('login', { title: 'Hello MetLife - Please Login To Your Account' });
 				}
 			});
 		}

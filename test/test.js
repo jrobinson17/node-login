@@ -6,3 +6,7 @@ describe('GET /', function() {
     request(app).get('/').expect('hello world', done);
   });
 });
+
+
+//        console.log("Express server listening on port " + app.get('port'));
+
