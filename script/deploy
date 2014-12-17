@@ -5,6 +5,7 @@ ssh app@app <<EOF
   git pull
   npm install --production
   npm install -d
+  forever start app.js
   forever restartall
   exit
 EOF
